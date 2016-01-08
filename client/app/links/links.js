@@ -2,19 +2,19 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', ['$scope', 'Links', function ($scope, Links) {
   // Your code here
-  $scope.data = {};
+  console.log('here is the links ', Links)
+  
+  $scope.data = {
+    links: []
+  };
+  
   $scope.getLinks = function(){
   console.log('corona ', $scope.data)
-    Links.getData($scope.data)
-    .catch(function (error) {
-        console.error('getdata error ', error);
-    });
+    Links.getData().then(function(passOverData){
+      $scope.data.links = passOverData
+    })
   };
-  // $scope.getLinks();
-}]);
+  
+  $scope.getLinks();
 
-// .directive('linksTemplate', function(){
-//   return {
-//     templateUrl: 'links.html'
-//   }
-// })
+}]);

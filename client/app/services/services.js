@@ -2,14 +2,12 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
-  var getData = function(data){
+  var derp;
+  var getData = function(link){
     console.log('IT IS TRYING TO GET DATA')
-    return $http.get('/api/links').then(
-      // function(response){
-        // return response
-      function(response){
-        console.log(response)
-        data.links = response;
+    return $http.get('/api/links')
+    .then(function(response){
+        return response.data;
       })
     }
   return {getData:getData};
