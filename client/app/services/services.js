@@ -7,11 +7,23 @@ angular.module('shortly.services', [])
     console.log('IT IS TRYING TO GET DATA')
     return $http.get('/api/links')
     .then(function(response){
+      console.log('inside getData Factory')
         return response.data;
       })
     }
-  return {getData:getData};
+  var addLink = function(link){
+    return $http.post('/api/links', {url: link})
+      .then(function(resp){
+        return resp;
+      })
+  }
+  return {getData:getData,
+    addLink: addLink};
 })
+
+
+
+
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user

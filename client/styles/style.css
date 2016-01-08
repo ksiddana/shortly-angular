@@ -20,6 +20,9 @@ h1 {
   height: 40px;
   background-color: #eee;
 }
+.navigation .signIn {
+  float: right;
+}
 
 .navigation ul {
   margin: 0;
@@ -58,6 +61,7 @@ h1 {
   margin-bottom: 5px;
   padding: 5px;
   min-height: 50px;
+  display: block;
 }
 
 .link:hover {
@@ -82,6 +86,7 @@ h1 {
 
 .link .title {
   font-weight: 600;
+  display: inline;
 }
 
 .link .original {
