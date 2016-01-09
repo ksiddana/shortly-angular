@@ -20,9 +20,6 @@ h1 {
   height: 40px;
   background-color: #eee;
 }
-.navigation .signIn {
-  float: right;
-}
 
 .navigation ul {
   margin: 0;
@@ -151,3 +148,8 @@ input[type=url]:focus {
   clear: both;
 }
 
+/* The starting CSS styles for the enter animation */
+.fade.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}

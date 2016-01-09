@@ -4,18 +4,16 @@
     <li><a href="#/links">Links</a></li>
     <li><a href="#/shorten">Shorten</a></li>
     <!-- <li><a href="#/signin" class="signin">Login</a></li> -->
-      <li><a href="#/signup">Sign Up</a></li>
+      <!-- <li><a href="#/signup">Sign Up</a></li> -->
   </ul>
-  <!-- <input type='text' /> -->
-      <li class='link' ng-repeat="link in data" ng-mouseover="increaseCount(link.visits)">
-        <img src="/assets/redirect_icon.png">
-        <span>
-        <a class="title" href="{{link.url}}" >{{link.title}}</a>
-        <span class="info">{{ link.url }}</span>
-        <div class="visits">
-        Visits
-        <span class="count">{{ link.visits }}</span>
-        </div>
-        </span>
-      </li>
+  <input type='text' ng-model="searchString"/>
+  <div class='link' ng-repeat="link in data | filter: searchString">    
+      <img src="/assets/redirect_icon.png">
+      <span class="title"> {{ link.title }}</span>
+      <span class="visits">Visits: 
+        <span class="counts">{{ link.visits }}</span>
+      </span>
+      <p class="original">{{link.url}}</p>
+      <a class="info" href="{{link.base_url + '/api/links/' + link.code}}" target=" " ng-click="increaseCount(link)"> {{ link.base_url + '/api/links/' + link.code }} </a>
+  </div>
 </div>

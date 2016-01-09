@@ -8,10 +8,14 @@ angular.module('shortly.links', [])
   $scope.data = [];
 
   $scope.applesauce = '';
+  
   $scope.increaseCount = function(x){
-    console.log(x)
-    x++;
+    console.log(x.visits)
+
+    Links.navToLink();
+    // x++;
   };
+
   $scope.getLinks = function(){
   console.log('corona ', $scope.data)
     Links.getData().then(function(passOverData){
@@ -22,5 +26,6 @@ angular.module('shortly.links', [])
     })
   };
   $scope.getLinks();
+
 
 }]);

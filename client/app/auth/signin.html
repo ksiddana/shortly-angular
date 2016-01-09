@@ -1,8 +1,11 @@
 <div id='signin'>
   <h1>signin</h1>
   <form class="signin" name="signinForm" ng-submit='signin()' novalidate>
-    <input type='text'ng-model='user.username' ng-minlength="4">
-    <input type="password" ng-model='user.password' ng-minlength="5" ng-maxlength="12">
+    <input type='text'ng-model='user.username'>
+    <p ng-show="user.username.length < 4" class="error">Its too short!</p>
+    <p ng-show="user.username.length > 8 && user.username.$invalid" class="error">Its too long!</p>
+    <input type="password" ng-model='user.password'>
+    <span ng-hide="user.username.length > 0 && user.password.length > 0" class="error">Required Fields</span>
     <button>signin</button>
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
