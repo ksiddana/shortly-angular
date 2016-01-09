@@ -7,7 +7,7 @@
       <!-- <li><a href="#/signup">Sign Up</a></li> -->
   </ul>
   <input type='text' ng-model="searchString"/>
-  <div class='link' ng-repeat="link in data | filter: searchString">    
+  <div class='link' ng-repeat="link in data | filter: searchString"                          placeholder=>    
       <img src="/assets/redirect_icon.png">
       <span class="title"> {{ link.title }}</span>
       <span class="visits">Visits: 

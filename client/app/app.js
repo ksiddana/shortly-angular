@@ -3,9 +3,9 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ui.router'
 ])
-.config(function($routeProvider, $httpProvider) {
+/*.config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -32,6 +32,35 @@ angular.module('shortly', [
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
+})*/
+.config(function($stateProvider, $urlRouterProvider) {
+  
+
+  // Now setup some state providers
+  $stateProvider
+   .state('signin', {
+      url: "/signin",
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthController'
+    })
+    .state('signup', {
+      url: "/signup",
+      templateUrl: 'app/auth/signup.html',
+      controller: 'AuthController'
+    })
+    // Your code here
+    .state('links', {
+      url: "/links",
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
+    .state('shorten', {
+      url: "/shorten",
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    })
+
+    $urlRouterProvider.otherwise("/signin");
 })
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
